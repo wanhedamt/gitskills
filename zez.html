@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body{margin:0;}
+      .box{
+        height:900px;
+        background-color: #e4393c;
+      }
+      #mask{
+        background-color: #000;
+        opacity:.75;
+        filter:alpha(opacity=75);
+        height:1000px;
+        width:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: 99;
+      }
+      #login{
+        position: fixed;
+        top:50%;
+        left:50%;
+        width:670px;
+        height:380px;
+        background-color: #fff;
+        margin-left:-335px;
+        margin-top:-190px;
+        z-index: 100;
+      }
+      #close{
+        width: 30px;
+        height:30px;
+        position: absolute;
+        right:0;
+        top:10px;
+        font-size: 16px;
+        color: #ddd;
+        font-family: "微软雅黑";
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="box">
+        <a id="btnLogin" href="javascript:;">clickme login</a>
+      </div>
+      <!-- <div id="mask">
+
+      </div> -->
+      <!-- <div id="login">
+        <span id="close">X</span>
+      </div> -->
+      <script type="text/javascript">
+        window.onload=function(){
+          function $(id){
+            return document.getElementById(id);
+          }
+
+  var oMask=document.createElement("div");
+
+    var oLogin=document.createElement("div");
+          function show(){
+            var oBtn=  $("btnLogin");
+            //获取页面的高度
+            var sHeight=document.documentElement.scrollHeight;
+            var sWidth=document.documentElement.scrollWidth;
+            //可视区域
+            var wHeight=document.documentElement.clientHeight;
+
+
+
+                oMask.id="mask";
+                oMask.style.height=sHeight+"px";
+                oMask.style.width=sWidth+"px";
+                document.body.appendChild(oMask);
+
+                oLogin.id="login";
+                oLogin.innerHTML="<span id='close'>X</span>";
+                  document.body.appendChild(oLogin);
+            }
+
+
+
+            $("btnLogin").onclick=function(){
+                show();
+              close($("close"));
+              close($("mask"));
+            }
+            function close(id){
+              id.onclick=function(){
+                document.body.removeChild(oMask);
+                    document.body.removeChild(oLogin);
+              }
+            }
+
+          }
+
+
+      </script>
+  </body>
+</html>

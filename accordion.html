@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      *{
+        margin:0;padding: 0;
+        list-style: none;
+      }
+      p{
+        cursor: pointer;
+        height:25px;
+        font-weight: bold;
+        background:#eee;
+       border-bottom:1px solid #ccc;
+      }
+      ul{
+      display: none;
+
+
+      }
+      ul li{
+        height:24px;
+         line-height:24px;
+         padding-left:5px
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menu" id="menu">
+          <div>
+              <p>
+                Web前端
+              </p>
+              <ul style="display:block">
+              				<li>JavaScript</li>
+              				<li>DIV+CSS</li>
+              				<li>jQuery</li>
+              			</ul>
+          </div>
+
+          <div>
+              <p>
+                Web前端
+              </p>
+              <ul >
+                      <li>JavaScript</li>
+                      <li>DIV+CSS</li>
+                      <li>jQuery</li>
+                    </ul>
+          </div>
+
+          <div>
+              <p>
+                Web前端
+              </p>
+              <ul>
+                      <li>JavaScript</li>
+                      <li>DIV+CSS</li>
+                      <li>jQuery</li>
+                    </ul>
+          </div>
+    </div>
+    <script type="text/javascript">
+          function $ (id){
+            return typeof id==="string"?document.getElementById(id):id;
+          }
+          window.onload=function(){
+            var ps=$('menu').getElementsByTagName('p'),
+                uls=$("menu").getElementsByTagName('ul');
+                for (var i = 0; i < ps.length; i++) {
+                  ps[i].id=i;
+                  ps[i].onclick=function(){
+
+                    if(uls[this.id].style.display=="none"){
+                      for (var i = 0; i < ps.length; i++) {
+                      uls[i].style.display="none"
+                      }
+                      uls[this.id].style.display="block"
+                    }else{
+                        uls[this.id].style.display="none";
+                    }
+
+                  }
+                }
+          }
+    </script>
+  </body>
+</html>

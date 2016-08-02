@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+        font-size: 14px;line-height: 1.8;
+        background-color: #e4393c;
+        font-family: "微软雅黑"；
+      }
+      #demo{
+        width:500px;
+        margin:30px 20px;
+        position: relative;
+        background-color: lightblue;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 5px rgba(0,0,0,.2);
+      }
+      .tooltip-box{
+        display: block;
+        background-color: #fff;
+        line-height: 1.6;
+        border: 1px solid #ddd;
+        padding: 20px;
+        font-size: 12px;
+        color:#333;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          <a href="javascript:;" id="tooltip1" class=tooltip>经过
+
+          </a>
+           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+    </div>
+    <script type="text/javascript">
+    //onj ToolTip超链接元素
+    //id ToolTip提示框id
+    //html ToolTip提示框HTML
+    var isIES=navigator.userAgent.indexOf("MSIE")>-1;
+    function $(id){
+      return typeof id==="string"?document.getElementById(id):id;
+    }
+
+      function showToolTip(obj,id,html,width,height){
+
+          if($(id)==null){
+            //创建
+            var toolTip=document.createElement("div");
+             toolTip.className="tooltip-box";
+             toolTip.id=id;
+              toolTip.innerHTML=html;
+              obj.appendChild(toolTip);
+              toolTip.style.width==width?width+"px":"auto";
+                toolTip.style.height==height?height+"px":"auto";
+                toolTip.style.position="absolute";
+                toolTip.style.display="none";
+                var left=obj.offsetLeft;
+                var top=obj.offsetTop;
+                toolTip.style.left=left+"px";
+                toolTip.style.top=top+20+"px";
+              obj.onmouseleave=function(){
+                setTimeout(function(){
+                  $(id).style.display="none";
+                },300)
+
+              }
+             }else {
+            //显示
+            document.getElementById(id).style.display="block";
+          }
+      }
+      var t1=$("tooltip1");
+      t1.onmouseenter=function(){
+        console.log(this);
+        showToolTip(this,"t1","fjkjkljljkl",200)
+      }
+    </script>
+  </body>
+</html>

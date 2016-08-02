@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+  *{
+    padding:0px;
+    margin:0;
+  }
+    .side-left{
+      float:left;
+      height:2990px;
+      width:70%;
+      background-color: #ddd;
+    }
+    .side-right{
+      float: right;
+      height:2000px;
+      width:28%;
+    }
+    .right1{
+    height:1000px;
+    background-color:#73996c;
+    }
+    .right2{
+      background-color: lightblue;
+      height:1000px;
+    }
+  </style>
+
+  <body>
+<div class="side-left">
+
+</div>
+<div class="side-right">
+  <div class="right1">
+
+  </div>
+  <div class="right2">
+    <div class="">
+<a href="javascript:;" id="backTop">top</a>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery.js">
+</script>
+<script type="text/javascript">
+    var jWindow=$(window);
+    jWindow.scroll(function(){
+      var scrollHeight=jWindow.scrollTop();//滚动高度
+      var screenHeight=jWindow.height();//窗口高度
+      var sideHeight=$(".side-right").height();//元素高度
+      if(scrollHeight+screenHeight>sideHeight){
+        $(".side-right").css({
+          "position":"fixed",
+          "top":-(sideHeight-screenHeight)+"px",//取差值
+          "right":0
+        });
+      }else{
+          $(".side-right").css({
+            'position':"static"
+          })
+      }
+    })
+    window.onload=function(){
+      jWindow.trigger("scroll");
+    }
+    jWindow.resize(function(){
+      jWindow.trigger("scroll");
+    })
+    //判断临界点
+    function check(pos){
+      if($(window).scrollTop>pos){
+        $("#backTop").fadeIn();
+      }else{
+          $("#backTop").fadeOut();
+      }
+    }
+    $("#backTop").click(function(){
+      if($(window).scrollTop()!=0){
+      if()
+      }
+      $("body,html").animate({
+        scrollTop:0
+      },800)
+    })
+</script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>fullPage全屏滚动时差切换效果（兼容IE7及以上版本）</title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<link rel="stylesheet" href="css/jq22.css">
+<style media="screen">
+.main{ text-align: center;}
+.pullDown{
+width: 300px;
+height: 300px;
+background-image: none !important;
+background-color: #fe5652 !important;
+border-radius: 24px;
+			margin: 0px auto;
+}
+.pullDown{
+animation-name: pullDown;
+-webkit-animation-name: pullDown;
+
+animation-duration: 1.1s;
+-webkit-animation-duration: 1.1s;
+
+animation-timing-function: ease-out;
+-webkit-animation-timing-function: ease-out;
+
+transform-origin: 50% 0%;
+-ms-transform-origin: 50% 0%;
+-webkit-transform-origin: 50% 0%;
+}
+
+@keyframes pullDown {
+0% {
+	transform: scaleY(0.1);
+}
+40% {
+	transform: scaleY(1.02);
+}
+60% {
+	transform: scaleY(0.98);
+}
+80% {
+	transform: scaleY(1.01);
+}
+100% {
+	transform: scaleY(0.98);
+}
+80% {
+	transform: scaleY(1.01);
+}
+100% {
+	transform: scaleY(1);
+}
+}
+
+@-webkit-keyframes pullDown {
+0% {
+	-webkit-transform: scaleY(0.1);
+}
+40% {
+	-webkit-transform: scaleY(1.02);
+}
+60% {
+	-webkit-transform: scaleY(0.98);
+}
+80% {
+	-webkit-transform: scaleY(1.01);
+}
+100% {
+	-webkit-transform: scaleY(0.98);
+}
+80% {
+	-webkit-transform: scaleY(1.01);
+}
+100% {
+	-webkit-transform: scaleY(1);
+}
+}
+</style>
+</head>
+<body>
+
+<!--代码部分begin-->
+<ul id="menu">
+	<li data-menuanchor="page1" class="active"><a href="#page1">1</a></li>
+	<li data-menuanchor="page2"><a href="#page2">2</a></li>
+	<li data-menuanchor="page3"><a href="#page3">3</a></li>
+	<li data-menuanchor="page4"><a href="#page4">4</a></li>
+	<li data-menuanchor="page5"><a href="#page5">5</a></li>
+	<li data-menuanchor="page6"><a href="#page6">6</a></li>
+</ul>
+
+<div class="section">
+	<div class="main">
+	<div id="object" class="pullDown"></div>
+	</div>
+</div>
+<div class="section">
+
+</div>
+<div class="section"></div>
+<div class="section"></div>
+<div class="section"></div>
+<div class="section"></div>
+
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery-ui-1.10.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(function(){
+	$.fn.fullpage({
+		slidesColor: ['rgba(0,0,0,.5)', '#CC6600', '#CCCC00', '#66CC66', '#CC3366','lightgreen'],
+		anchors: ['page1', 'page2', 'page3', 'page4', 'page5','page6'],
+		menu: '#menu'
+	});
+});
+</script>
+<!--代码部分end-->
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>table切换</title>
+    <style media="screen">
+        *{
+          padding:0;
+          margin: 0;
+          list-style:none;
+          font-size: 12px;
+        }
+        .notice{
+          width:298px;
+          height:98px;
+          margin:10px;
+          border:1px solid #eee;
+          overflow:hidden;
+        }
+        .notice-tit{
+          height:27px;
+          position: relative;
+          background-color: #e4393c;
+        }
+        .notice-tit ul{
+          position: absolute;
+          width:301px;
+          left:-1px;
+        }
+        .notice-tit ul li{
+          float: left;
+          width:58px;height:26px;
+          line-height: 26px;
+          text-align: center;overflow: hidden;
+          background-color: #fff;
+          border-bottom: 1px solid #eee;
+          padding: 0 1px;
+        }
+       ul li a{
+          text-decoration: none;
+          color:#e43933;
+        }
+        .notice-tit li.select{
+          background-color: #fff;
+          border-bottom-color: #fff;
+          border-left: 1px solid #eee;
+          border-right: 1px solid #eee;
+          padding: 0px;
+        }
+        .notice-con .mod{
+          margin:10px 10px 10px 19px;
+        }
+        .notice-con .mod ul li{
+          float:left;
+          width:134px;
+          height:25px;
+        }
+
+    </style>
+  </head>
+  <body>
+      <div class="notice" id="notice">
+        <div class="notice-tit" id="notice-tit">
+              <ul>
+                <li class="select">
+                <a href="javascript:;">公告</a>
+              </li>
+              <li>
+                <a href="javascript:;">规则</a>
+              </li>
+              <li>
+                <a href="javascript:;">论坛</a>
+              </li>
+              <li>
+                <a href="javascript:;">安全</a>
+              </li>
+              <li>
+                <a href="javascript:;">公益</a>
+              </li>
+              </ul>
+        </div>
+
+        <div class="notice-con" id="notice-con">
+              <div class="mod" style="display:block;">
+                  <ul>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球5</a>
+                    </li>
+                  </ul>
+              </div>
+
+              <div class="mod" style="display:none;">
+                  <ul>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球4</a>
+                    </li>
+                  </ul>
+              </div>
+
+              <div class="mod" style="display:none;">
+                  <ul>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球3</a>
+                    </li>
+                  </ul>
+              </div>
+
+              <div class="mod" style="display:none;">
+                  <ul>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球2</a>
+                    </li>
+                  </ul>
+              </div>
+
+              <div class="mod" style="display:none;">
+                  <ul>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球</a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">涨停，要玩快乐主球1</a>
+                    </li>
+                  </ul>
+              </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+          function $ (id){
+            return typeof id==="string"?document.getElementById(id):id;
+          }
+          window.onload=function(){
+            //获取鼠标点击的标签和要切换内容的标签
+            var titles=$('notice-tit').getElementsByTagName('li'),
+                divs=$("notice-con").getElementsByTagName('div');
+                if(titles.length!=divs.length){return};
+                //遍历titles里的所有li
+                for (var i = 0; i < titles.length; i++) {
+                    titles[i].value=i;
+                    titles[i].onclick=function(){
+                      //清楚所有li样式
+                      for (var a = 0; a < titles.length; a++) {
+                        titles[a].className="";
+                        divs[a].style.display="none";
+                      }
+                      //添加当前class
+                      this.className="select";
+                      divs[this.value].style.display='block';
+                    }
+                }
+          }
+      </script>
+  </body>
+</html>
